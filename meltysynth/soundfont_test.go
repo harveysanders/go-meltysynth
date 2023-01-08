@@ -1,23 +1,19 @@
 package meltysynth_test
 
 import (
-	"os"
 	"testing"
 
 	"github.com/sinshu/go-meltysynth/meltysynth"
 )
 
 func TestTimGM6mb_SoundFont(t *testing.T) {
-
-	file, _ := os.Open("TimGM6mb.sf2")
-	soundFont, _ := meltysynth.NewSoundFont(file)
+	soundFont := loadGM(t)
 
 	TimGM6mb_SoundFontInfo(t, soundFont)
 	TimGM6mb_SoundFontSampleData(t, soundFont)
 }
 
 func TimGM6mb_SoundFontInfo(t *testing.T, soundFont *meltysynth.SoundFont) {
-
 	if soundFont.Info.Version.Major != 2 {
 		t.Fail()
 	}
@@ -72,7 +68,6 @@ func TimGM6mb_SoundFontInfo(t *testing.T, soundFont *meltysynth.SoundFont) {
 }
 
 func TimGM6mb_SoundFontSampleData(t *testing.T, soundFont *meltysynth.SoundFont) {
-
 	if soundFont.BitsPerSample != 16 {
 		t.Fail()
 	}
