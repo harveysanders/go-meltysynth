@@ -17,7 +17,7 @@ func loadGS(t *testing.T) *meltysynth.SoundFont {
 }
 
 func loadGM(t *testing.T) *meltysynth.SoundFont {
-	return loadSoundFont(t, envGS)
+	return loadSoundFont(t, envGM)
 }
 
 func loadSoundFont(t *testing.T, env string) *meltysynth.SoundFont {
